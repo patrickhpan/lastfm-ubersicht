@@ -6,7 +6,7 @@
 # 1) You haven't scrobbled before (probably not)
 # 2) Last.FM changed their API. Email me and mention Last.FM in the subject line!
 
-command: 'username=' + 'patrickhpan' + '; curl -s "http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=$username&api_key=b25b959554ed76058ac220b7b2e0a026&format=json&limit=1"'
+command: 'username=' + 'your_username_here' + '; curl -s "http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=$username&api_key=b25b959554ed76058ac220b7b2e0a026&format=json&limit=1"'
 
 refreshFrequency: 5000
 
