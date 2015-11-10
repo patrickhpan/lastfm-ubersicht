@@ -29,6 +29,10 @@ update: (output) ->
     $('#track').text 'Please enter your Last.FM username in lastfm.coffee!'
     return
   track = data.recenttracks.track[0]
+  if track['@attr']
+    $('#timestamp').text 'Now Playing'
+  else
+    $('#timestamp').text @timeString(new Date / 1000 - (track.date.uts))
   if $('#track').text() != track.name
     $('#track').text track.name
     $('#track').css
@@ -36,10 +40,6 @@ update: (output) ->
       'height': 'auto'
     @autoSizeText($('#track')[0])
     $('#artistalbum').text track.artist['#text'] + ": " + track.album['#text']
-    if track['@attr']
-      $('#timestamp').text 'Now Playing'
-    else
-      $('#timestamp').text @timeString(new Date / 1000 - (track.date.uts))
     if(track.image)
       $('#art').css
         'background-image': 'url(' + track.image[track.image.length-1]['#text'] + ')'
